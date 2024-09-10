@@ -129,17 +129,12 @@ function randomSentenceFromDictionary(){
 
 
 function PrintSentence(){
-
-        // text(finishSententence, width/6 , height/6);
         newSentence = document.createElement('h1');
-        newSentence.id = 'currentWord'
+        newSentence.id = 'currentWords'
         newSentence.innerText = finishSententence;
-        newSentence.addEventListener('click', evt => {
-            localStorage.setItem(`${localStorage.length + 1}`, `${newSentence.innerText}`)
-        })
         textContainer.append(newSentence)
-     
 }
+
 
 
 function keyPressed(){
@@ -158,14 +153,27 @@ function logSavedWords() {
 }
 
 textContainer.addEventListener('keydown', (evt) => {
-    document.getElementById('currentWord').remove();
-    keyPressed();
+    evt.preventDefault();
+    let currentWords = document.getElementById('currentWords');
+
+    if (evt.key === 'Enter') {
+        currentWords.remove();
+        keyPressed(); 
+    }
+    if (evt.key === 'Tab') {
+        logSavedWords();
+    }
+    if (evt.key === '\\') {
+        localStorage.setItem(`${localStorage.length + 1}`, `${currentWords.innerText}`);
+        console.log(`Saved ${currentWords.innerText}`);
+    }
 })
 
 function logMacros(){
     console.log(`
-        // // // // // // // MACROS // // // // // // // //
-        
+        // // // // // HOW? // // // // // // // 
+
+            // MACROS
         maxSentenceLength = ${maxSentenceLength};
         useOldDictionary = ${useOldDictionary};
 
@@ -174,15 +182,16 @@ function logMacros(){
         spaceChance = ${spaceChance};        
 
         to change macro:
-        set_'macroName'(value);    e.g  set_charChance(7);
+              set_'macroName'(value); 
+        e.g:  set_charChance(7);
         
-
-        click any key for new phrase
-        click on word to save it
-        to see saved words: logSavedWord()
+            // INSTRUCTIONS
+        make new phrase: Enter
+        save a word: \\
+        see saved words in console: Tab
         to clear saved words: localStorage.clear()
 
-        // // // // // // // // // // // // // // // // // //
+        // // // // // // // // // // // // // // 
          `)
 }
 
