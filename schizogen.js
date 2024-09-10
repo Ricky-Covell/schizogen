@@ -165,6 +165,7 @@ textContainer.addEventListener('keydown', (evt) => {
 function logMacros(){
     console.log(`
         // // // // // // // MACROS // // // // // // // //
+        click any key for new phrase
         
         maxSentenceLength = ${maxSentenceLength};
         useOldDictionary = ${useOldDictionary};
