@@ -174,7 +174,7 @@ function logMacros(){
         spaceChance = ${spaceChance};        
 
         to change macro:
-        set_'macroName'(value);    e.g  set_charChange(7);
+        set_'macroName'(value);    e.g  set_charChance(7);
         
 
         click on word to save it
