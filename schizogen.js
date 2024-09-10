@@ -165,7 +165,6 @@ textContainer.addEventListener('keydown', (evt) => {
 function logMacros(){
     console.log(`
         // // // // // // // MACROS // // // // // // // //
-        click any key for new phrase
         
         maxSentenceLength = ${maxSentenceLength};
         useOldDictionary = ${useOldDictionary};
@@ -178,10 +177,9 @@ function logMacros(){
         set_'macroName'(value);    e.g  set_charChance(7);
         
 
+        click any key for new phrase
         click on word to save it
-
         to see saved words: logSavedWord()
-
         to clear saved words: localStorage.clear()
 
         // // // // // // // // // // // // // // // // // //
